@@ -1,0 +1,21 @@
+{
+  "name": "project1",
+  "version": "1.0.0",
+  "description": "first Project Cypress",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "rimraf -r ./cypress/reports/*.json",
+    "test": "cypress run || npm run posttest",
+    "posttest": "npm run merge && npm run htmlreport",
+    "merge": "npx mochawesome-merge ./cypress/reports/*.json > report1.json",
+    "htmlreport":"npx marge ./report1.json --reportDir ./cypress/reports"
+  },
+  "author": "VINCENZO LO GRANDE",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^10.1.0",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.2.1",
+    "mochawesome-report-generator": "^6.2.0"
+  }
+}
